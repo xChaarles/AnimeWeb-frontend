@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './genero.component.html',
   styles: ``
 })
-export class GeneroComponent {
+export default class GeneroComponent {
 
 }

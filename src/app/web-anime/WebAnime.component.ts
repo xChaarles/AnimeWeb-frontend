@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   standalone: true,
   imports: [],
-  templateUrl: './web-anime.component.html',
+  templateUrl: './Webanime.component.html',
   styles: ``
 })
-export class WebAnimeComponent {
+export default class WebAnimeComponent {
 
 }
