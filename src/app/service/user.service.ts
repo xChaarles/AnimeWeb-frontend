@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,25 @@ export class UserService {
     }catch(error){
       throw error;                                                             //si no devolvera que es incorrecta
     }
+  }
+
+  //Registro de Usuarios desde ADMIN
+  async RegistroAdmin(UserData:any, token:string):Promise<any>{
+    const url = `${this.api}/auth/register`;//url es la ruta del backend para el registro tipo admin
+    const headers = new HttpHeaders({     //aqui le pasamos el headers la autorizacion y el token de que el usuario es de tipo
+      'Authorization':`Barer ${token}`    //ADMIN
+    })
+    try{
+      const response = this.http.post<any>(url, UserData, {headers}).toPromise()//Donde response se convierte en el nuevo usuario a almacenar
+      return response;                                                          //con la url, los datos y el token de autorizacion y retorna un nuevo usuario
+    }catch(error){
+      throw error;
+    }
+  }
+  
+  //Registro del usuario
+  SingUp(UserData:any):Observable<Object>{
+    return this.http.post<any>(`${this.api}/auth/register`, UserData)
   }
 
   //METODOS DE AUTENTICACION
