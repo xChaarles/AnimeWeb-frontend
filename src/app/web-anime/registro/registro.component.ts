@@ -54,7 +54,7 @@ export default class RegistroComponent implements OnInit{
           throw new Error('No se encontró ningún token');
         }
   
-        const response = await this.userService.RegistroAdmin(this.formData, token);
+        const response = await this.userService.register(this.formData, token);
         if (response.statusCode === 200) {
           this.router.navigate(['WebAnime/perfil/forms/userlist']).then(() => {
             window.location.reload();

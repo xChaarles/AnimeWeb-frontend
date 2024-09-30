@@ -73,6 +73,21 @@ export const routes: Routes = [
                                 title: 'Update Anime',
                                 loadComponent: () => import("./web-anime/perfil/forms/update-anime/update-anime.component")
                             },
+                            {
+                                path: 'crear-user',
+                                title: 'Crear User',
+                                loadComponent: () => import("./web-anime/perfil/forms/create-user/create-user.component")
+                            },
+                            {
+                                path: 'crear-genero',
+                                title: 'Crear Genero',
+                                loadComponent: () => import("./web-anime/perfil/forms/create-genero/create-genero.component")
+                            },
+                            {
+                                path: 'crear-anime',
+                                title: 'Crear Anime',
+                                loadComponent: () => import("./web-anime/perfil/forms/create-anime/create-anime.component")
+                            },
                         ]
                     },
                     {

@@ -1,4 +1,4 @@
-import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -21,15 +21,15 @@ export class UserService {
     }
   }
 
-  //Registro de Usuarios desde ADMIN
-  async RegistroAdmin(UserData:any, token:string):Promise<any>{
-    const url = `${this.api}/auth/register`;//url es la ruta del backend para el registro tipo admin
-    const headers = new HttpHeaders({     //aqui le pasamos el headers la autorizacion y el token de que el usuario es de tipo
-      'Authorization':`Barer ${token}`    //ADMIN
+  //Registro de Usuarios desde ADMIN //url es la ruta del backend para el registro tipo admin //aqui le pasamos el headers la autorizacion y el token de que el usuario es de tipo //ADMIN//Donde response se convierte en el nuevo usuario a almacenar//con la url, los datos y el token de autorizacion y retorna un nuevo usuario
+  async register(UserData:any, token:string):Promise<any>{
+    const url = `${this.api}/auth/register`;
+    const headers = new HttpHeaders({     
+      'Authorization': `Bearer ${token}`
     })
     try{
-      const response = this.http.post<any>(url, UserData, {headers}).toPromise()//Donde response se convierte en el nuevo usuario a almacenar
-      return response;                                                          //con la url, los datos y el token de autorizacion y retorna un nuevo usuario
+      const response = this.http.post<any>(url, UserData, {headers}).toPromise()
+      return response;
     }catch(error){
       throw error;
     }
