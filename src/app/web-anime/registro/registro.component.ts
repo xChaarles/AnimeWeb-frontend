@@ -3,16 +3,19 @@ import { UserService } from '../../service/user.service';
 import { Router, RouterModule } from '@angular/router';
 import { catchError, tap, throwError } from 'rxjs';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   standalone: true,
-  imports: [FormsModule, RouterModule],
+  imports: [FormsModule, RouterModule, CommonModule],
   templateUrl: './registro.component.html',
   styles: ``
 })
 export default class RegistroComponent implements OnInit{
 
   isAdmin: boolean = false; //esto nos permitira validar si un usario es tipo admin o no
+  isAuthenticated:boolean = false;
+  isUser:boolean = false;
 
   formData: any = {     //Objeto para llenar el formulario y enviarlo a nuestro servicio
     unombre: '',
@@ -29,6 +32,8 @@ export default class RegistroComponent implements OnInit{
 
   ngOnInit(): void {
     this.isAdmin = this.userService.isAdmin();
+    this.isAuthenticated = this.userService.isAuthenticated();
+    this.isUser = this.userService.isUser();
   }
 
   async RegistrarUsuario(){
@@ -51,7 +56,9 @@ export default class RegistroComponent implements OnInit{
   
         const response = await this.userService.RegistroAdmin(this.formData, token);
         if (response.statusCode === 200) {
-          this.router.navigate(['WebAnime/perfil/userlist']);
+          this.router.navigate(['WebAnime/perfil/forms/userlist']).then(() => {
+            window.location.reload();
+          });
         } else {
           this.showError(response.message);
         }
@@ -63,18 +70,17 @@ export default class RegistroComponent implements OnInit{
         this.userService.SingUp(this.formData).pipe(
           tap(dato =>{
             console.log(dato)
-            this.router.navigate(['WebAnime/login'])
+            this.router.navigate(['WebAnime/login']).then(() => {
+              window.location.reload();
+            });
           }),
           catchError (error => {
             return throwError(() => new Error(error));
           })
         ).subscribe();
-    }
-
-    
-    
+    } 
   }
-
+  
   showError(message: string) {
     this.errorMessage = message;
     setTimeout(() => {

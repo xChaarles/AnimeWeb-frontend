@@ -1,1 +1,56 @@
-<p>perfil works!</p>
+<div class="flex overflow-hidden bg-gray-900 select-none">
+    <!-- Navegación -->
+    <nav  [ngClass]="{'block': menuOpen,'hidden': !menuOpen}"
+      class="h-screen w-64 flex flex-col items-center bg-gray-900 py-4 md:w-24 md:block md:flex    ">
+  
+      <ul class="mt-2 text-gray-700 dark:text-gray-400 capitalize">
+        <!-- Links -->
+        <li class="mt-3 p-2 hover:text-blue-600 rounded-lg">
+          <a [routerLink]="['/WebAnime/perfil/tablas']" class="flex flex-col items-center">
+               <!-- icon666.com - MILLIONS vector ICONS FREE --><svg id="line" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="m60.22217 58.55176h-56.44434a.49971.49971 0 0 1 -.5-.5v-52.10352a.49972.49972 0 0 1 .5-.5h56.44434a.49972.49972 0 0 1 .5.5v52.10352a.49971.49971 0 0 1 -.5.5zm-55.94434-1h55.44434v-51.10352h-55.44434z" fill="#000000" style="fill: rgb(4, 169, 251);"></path><path d="m31.61328 54.06055a.49972.49972 0 0 1 -.5-.5v-43.41895a.5.5 0 0 1 1 0v43.41895a.49972.49972 0 0 1 -.5.5z" fill="#000000" style="fill: rgb(4, 169, 251);"></path><path d="m53.32275 32.5h-44.06787a.5.5 0 0 1 0-1h44.06787a.5.5 0 0 1 0 1z" fill="#000000" style="fill: rgb(4, 169, 251);"></path></svg>
+            <span class="text-xs mt-2">Tablas</span>
+          </a>
+        </li>
+
+        <li class="mt-3 p-2 hover:text-blue-600 rounded-lg">
+            <a [routerLink]="['/WebAnime/perfil/forms']" class="flex flex-col items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48" class="w-10 h-10">
+                    <linearGradient id="SVGID_1__Bz2MMh4egfVc_gr1" x1="35.29" x2="8.482" y1="12.906" y2="39.713" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#60affe"></stop><stop offset=".033" stop-color="#6ab4fe"></stop><stop offset=".197" stop-color="#97cbfe"></stop><stop offset=".362" stop-color="#bddeff"></stop><stop offset=".525" stop-color="#daecff"></stop><stop offset=".687" stop-color="#eef7ff"></stop><stop offset=".846" stop-color="#fbfdff"></stop><stop offset="1" stop-color="#fff"></stop></linearGradient><path fill="url(#SVGID_1__Bz2MMh4egfVc_gr1)" d="M26.926,5.5H12.541c-1.679,0-3.041,1.343-3.041,3v31c0,1.657,1.361,3,3.041,3h23.311	c1.679,0,3.041-1.343,3.041-3V17.307c0-0.516-0.208-1.012-0.578-1.377L28.321,6.07C27.951,5.705,27.449,5.5,26.926,5.5z"></path><path fill="none" stroke="#2e9bfe" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M32.404,42.5H35.5c1.657,0,3-1.343,3-3v-23h-8c-1.657,0-3-1.343-3-3v-1.457"></path><path fill="none" stroke="#2e9bfe" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9.5,18.213V39.5c0,1.657,1.343,3,3,3h14.734"></path><path fill="none" stroke="#2e9bfe" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M38.5,16.5l-11-11h-15c-1.657,0-3,1.343-3,3v3.904"></path><path fill="#2e9bfe" d="M16.49,25c-0.1,0-0.2-0.01-0.29-0.03c-0.1-0.02-0.19-0.05-0.28-0.08c-0.09-0.04-0.18-0.09-0.26-0.14 c-0.09-0.06-0.16-0.12-0.23-0.19c-0.28-0.28-0.44-0.67-0.44-1.06c0-0.39,0.16-0.78,0.44-1.06c0.35-0.35,0.87-0.51,1.35-0.41 c0.1,0.02,0.19,0.05,0.28,0.08c0.09,0.04,0.18,0.09,0.26,0.14c0.08,0.06,0.16,0.12,0.23,0.19c0.28,0.28,0.44,0.67,0.44,1.06 c0,0.39-0.16,0.78-0.44,1.06c-0.07,0.07-0.15,0.13-0.23,0.19c-0.08,0.05-0.17,0.1-0.26,0.14c-0.09,0.03-0.18,0.06-0.28,0.08 C16.69,24.99,16.59,25,16.49,25z"></path><path fill="#2e9bfe" d="M16.49,31c-0.4,0-0.78-0.16-1.06-0.44c-0.28-0.28-0.44-0.66-0.44-1.06c0-0.39,0.16-0.78,0.44-1.06 c0.07-0.07,0.14-0.13,0.23-0.19c0.08-0.05,0.16-0.1,0.26-0.13c0.09-0.04,0.18-0.07,0.28-0.09c0.19-0.04,0.39-0.04,0.58,0 c0.1,0.02,0.19,0.05,0.28,0.09c0.09,0.03,0.18,0.08,0.26,0.13c0.08,0.06,0.16,0.12,0.23,0.19c0.07,0.07,0.13,0.15,0.19,0.23 c0.05,0.08,0.1,0.17,0.13,0.26c0.04,0.09,0.07,0.18,0.09,0.28c0.02,0.09,0.03,0.19,0.03,0.29c0,0.4-0.16,0.78-0.44,1.06 C17.27,30.84,16.88,31,16.49,31z"></path><path fill="#2e9bfe" d="M16.49,37c-0.4,0-0.78-0.16-1.06-0.44c-0.28-0.28-0.44-0.66-0.44-1.06c0-0.4,0.16-0.78,0.44-1.06 c0.35-0.35,0.86-0.51,1.35-0.41c0.1,0.02,0.19,0.05,0.28,0.09c0.09,0.03,0.18,0.08,0.26,0.13c0.08,0.06,0.16,0.12,0.23,0.19 c0.28,0.28,0.44,0.67,0.44,1.06c0,0.39-0.16,0.78-0.44,1.06c-0.07,0.07-0.15,0.13-0.23,0.19c-0.08,0.05-0.17,0.1-0.26,0.13 c-0.09,0.04-0.18,0.07-0.28,0.09C16.69,36.99,16.59,37,16.49,37z"></path><line x1="21.383" x2="31.511" y1="23.5" y2="23.5" fill="none" stroke="#2e9bfe" stroke-linecap="round" stroke-width="3"></line><line x1="21.383" x2="31.511" y1="29.5" y2="29.5" fill="none" stroke="#2e9bfe" stroke-linecap="round" stroke-width="3"></line><line x1="21.383" x2="31.511" y1="35.5" y2="35.5" fill="none" stroke="#2e9bfe" stroke-linecap="round" stroke-width="3"></line>
+                </svg>
+                
+                <span class="text-xs mt-2">Forms</span>
+            </a>
+        </li>
+
+        <li class="mt-3 p-2 hover:text-blue-600 rounded-lg">
+            <a [routerLink]="['/WebAnime/perfil/info']" class="flex flex-col items-center">
+                <svg id="Layer_1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"><circle cx="256" cy="256" fill="#2196f3" r="256"/><path d="m256.005 244.671a162.971 162.971 0 0 1 162.488 146.4c-51.64 11.673-106.248 17.582-162.488 17.582s-110.855-5.909-162.5-17.582a162.98 162.98 0 0 1 162.5-146.4zm-74.508-86.5a74.512 74.512 0 1 1 74.508 74.508 74.593 74.593 0 0 1 -74.505-74.507z" fill="#fff" fill-rule="evenodd"/></svg>
+                <span class="text-xs mt-2">Info</span>
+            </a>
+          </li>
+      </ul>
+  
+      <div class="mt-auto flex  items-center p-2 text-blue-700 bg-gray-900">
+        @if (menuOpen) {
+            @if (isAuthenticated) {
+                <a (click)="logout()"
+                class="text-gray-400 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 hover:border-purple-600">Cerrar Sesion</a>
+            }
+        }
+      </div>
+    </nav>
+    <!-- Botón para pantallas pequeñas -->
+   
+    <div class="flex flex-col md:hidden  bg-gray-900">
+        <button
+            class="text-blue-600 dark:text-blue-300"
+            (click)="toggleMenu()">
+            <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </div>
+    <div class=" w-full">
+        <router-outlet />
+    </div>
+</div>

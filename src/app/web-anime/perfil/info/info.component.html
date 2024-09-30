@@ -1,0 +1,37 @@
+<body class="lg:mt-20 mt-16 w-full justify-center">
+    <div class="flex flex-col items-center bg-gray-900 text-white min-h-screen">
+        <!-- Foto de perfil -->
+        <div class="w-32 h-32 rounded-full overflow-hidden">
+            @if( profileInfo?.users?.urole === "ADMIN"){
+                <img class="object-cover object-center" src='https://t3.ftcdn.net/jpg/04/53/12/42/360_F_453124256_Lwu2GhC2cnimGwv46GBpwCVrIH0jOxJN.jpg' alt='Woman looking front'>
+            }@else{
+                <img class="object-cover object-center" src='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8SDw0QDw0NFRAWDQ0SFxgVDRUQDxAVFhUWFxURGBUYHSggGB0lGxUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OFxAQGy0jHR8rLS0tLi4vNzIrLyswLS0tKy0tLS0tNS0vLS0tKy0rLS0rLS0tLS0tLS0tKy0tLS0uK//AABEIAOkA2AMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABAUGBwgDAgH/xAA8EAACAgEBBAYHBgQHAQAAAAAAAQIDEQQFEiExBhMiQVHRFDJTYYGRkgczQlJxoSNyscEWYoKT4fDxF//EABoBAQADAQEBAAAAAAAAAAAAAAACBAUDAQb/xAAmEQEAAgEEAgEDBQAAAAAAAAAAAQIDBBEhMRJBUQUTIhQVMkJx/9oADAMBAAIRAxEAPwDR4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMHpp6JTnGEItyk0kkuLZuLoh0Ap08Y26mKsvwnuv1K/djvZX1Gppgje3fw648U5J2hq/Z3RrW3rNWlsa8Wt1fuWMugW0Esuqv/AHFk3TemlhYS8EisvjLxZl/ueS08REQtfpKx20pr9gaunPWUTS8Ut5fsVuDdmoT7+KMZ2/0VrujKyhKNqXJerL3Y8S5h10W4u430+38WuQfdtUoycZJqSbTXgfBoKwAAAAAAAAAAAAAAAAAAAAAAAAAEgNnfZRsSMY2a62KzlxryvnL9/wBzZWn1GTHth6dQ0Wmrj3VRb/V8SZTa08M+X1V5y5LWa2KvhWIXNteVwK/UUkzT35PS2vPFFTp1Y9fSV84OLyv/AEyG+krr6SxjyITDXv2h7JWIaqC4N7s8L5MwY3Lt3SKej1MGvwSa+HE00b2hy+ePafTO1FNrf6AAuuAAAAAAAAAAAAAAAAAAAAAAH7F8V+qPwAb56P3KdNOPYQfyWCZdUYR9nu2M1Qi32q3hrvcX3mwpxTSa5Y+Z8tqcc48kw1cdvKsIVNrTwy109+SsuqPmm1p4ZwmN3SJXNteVwK++kmae89LoLGe7mQjhLtiu3GoabUyfspf0waNZtT7TNrKGnVEX27Hx8VFGqz6L6ZSYxzafbN1Nt7bfAADRVgAAAAAAAAAAAAAAAAAAAAAALfYGwbdVPhwrT7Un/REbWisby9iJmdoeGx9oWUWq2vLx6yxlNe83B0b6QV21pwlmPevxQff8CPsvovVCmUIVRcXHjn1p+8w3avRjU6Wx3aOUnHPJetH3Nd5lZb4dVM16mOlytb4o37htnsyWYtP/AL4EW6o1loun11fZ1FGWu9dmX7ln/wDSKMfcX5/mXmU50Gas8Ru6xqKT2zmixpkTpF0ir01Tdkly4Rz2pvu+BgOt+0G+zsaajdb4J+tL5DY3RLU6qxajXSko5zhvty92O5E66OKfnmnaPj28nP5cUYntvaNuouldbnMuKWMJR7sEA3btfozp7qVB1RSisRcV2oeZqnpDsC3STxLjBvsyXJ/qaml1WPJHjHG3pUy4bV5lUAAuOIAAAAAAAAAAAAAAAAAAAAAn7E2ZPUXRriuHNvwRt/ZGgrphCEIpRil8fezH+gmyOro6xr+JYs8uS7kZHXNp8TE1ueclprHUL+DH4xvPtc02ntKmE+a4+K5lXVaTqbTLmJhaRdb0Xot9emmf6x3ZfsVv+AdFnL0sfreDKqbSTzRKM+WvEWl5OOs+mPaLYOnp+609UX4qOX82et1bLayBFtrITe0zvMvfGI6QabWnhkXbmyqr6pxlFODXxg/zImXVHzVZjg+ROtprMWq8mN42lorbWzJ6a6dU88OT/Mu5kE2j9oux1ZT10V26/wB4mrj6XS5vu44t79svLTwtsAAsOYAAAAAAAAAAAAAAAASNn6frLaq/zTivhniRyy6PayFOpqtsTcYy4+73kb7+M7dvY7b42BoIqqXDgkoL4c/3/oRtp7PabaRYdHdo1zrjFNYfGLT4Sz3fqWeooTTTPkrXtW87tiIiY4YZXPHBkyq09Np7PaeUV9dmOZ24tG8I9Lmm0nU2lJVaTabThaqUSt+DPGyB8U2knmQSV9tZDuqLayBFtrPYl5MKLacd6uUZcmnF/E0jrKNyyyH5ZyXwzwN1bd1cIpwysri33Rwae25qIWaiydfqt/NrvN36ZvET8KOq24QAAaqmAAAAAAAAAAAAAAAAAADJeiXSmelkoTzKhvlnjD3o3XsTbtd1cZKalFrhJc17pI5vLLYu29RpZqVNjS74vjGX6oz9XoK5vyrxKzh1E04np0jdUpLuaMc2ns9p5RjWwftEqnhWS6qfenxrl5GY1bYqtjxSa8YtSRiWw5cM8wvVyVvHCkrnjgyZTafOtoi3mD/syNW5eD+RKdrQdLim0nU2lJXZgX7VjWu74vCOX25meEvKIZHKSw22kl4vCMX290hhCMlXJJJcZvgv9PmYpt/ptXxirHY/yx9RGBbU2tbe+3Ls54RXqrzNDTfTrTO91bLqYjiE/pDt93NwrbVfe++f/BQAG5SkUjaFG1ptO8gAJIgAAAAAAAAAAAAAAAAAAAAAStJtG+r7q6cf0lw+RFB5MRPZE7Mjo6ba6PDrIy/mhkk/4+1n5afpMTBynT4p/rCcZL/LItR0110+HWQiv8sMFPqto32/eWzl8eBFBOuKleoh5N7T3IACaIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADtv0Sr2Vf0LyHolXsq/oXkBxIDtv0Sr2Vf0LyHolXsq/oXkBxIDtv0Sr2Vf0LyPl6Wr2VX0RA4mB2lpXp7Hao1V9i2Vcs1xXaSTePd2kfmps0teesVMcVWWPMFwhDG/Ll3ZQHFwO2I0UtJqurln1I8vE+L46eEJ2ThSoRhKUnuLCillvkBxUDtlael8q6uWfUj5HhB6d2zqVde9Guub/hx3cSckuP+lgcWg7Zelq9lV9ER6NT7Or6IgcTA7aWlq9lV9ESFqdVo67Y1TVSm1Fr+F2VvZUd6SW7HLjJLLWcPAHGQOxo7X2c4OzfoUN+uOZVODk7Pu91SinJS7msp4eCZZLSxm4SjSpKt2SzWsQgvxSljEVz5+D8GBxaDsW7a2gjVXduOVU4OanDQ2217vi5Qraj8cH1Pamz49fvSpiqoylNyqcYpRluycZOOJ4l2Xu5w+HMDjgHZz1Ol6yupV5nOEZLd0k5xUXndlKcYOME8P1muR76aOns3nCFTUZyg31axvLmk8YeOXDvTXcBxUDtv0Sr2Vf0LyHolXsq/oXkBxIDtv0Sr2Vf0LyHolXsq/oXkBxIDtv0Sr2Vf0LyAHsAAAAAFV0j2fK+h1whVKW/GS6ybjBNcpPEZb2Oe61h+7mWp8gYprOitknbOMtOrJz1EnLdcXNSrrUIPC5b9aeOOO7J56norbb10rYaPftr2jBvjN1deobji3DMt1xf5fWyvAzAIDELOi1kpzluaeLlRKK3b7FGhup19VGCglKGW3l45+q3xPXW9Ft7r4V16SFc9BZRxW83JxxHsbnYSlmWU+PhniZT4H6gMP1XRa6bsUXpqt5NqcHJ2VLqVX6LFbsc1Z7Wcrn6qfEk09H7VfVeoaWvc6pdTCUnQ8OzefqLtLfUovd4NY78mThAY3tPYV1s9RLGmTt00Yb7lKVmnkoyThDsrehJvi8xfPnlYhvolOcpSnDSxTjdu1x3pV0Oc6HiD3Vwaqnl4XGfIy9/2YXmBV7O2QoVOqTxFau26CrnKChF2uyEOGOCyk48ua5EfbeztRfaobmnelcMSzfKu7eaadm71UlLdTzGO8uPFsvR5AYtPYurdVuY6OVsqdJQl1s4VqFLsfW73VtqUt99nGEvxM9ati6haqeo/g9pynJdfY+tzT1cdLJbm6oRl2lPGf8vF5yMAUei2ZqHVpqr1RGMLpTmoWysVii3KtZcI/ieX/KueeHjbsnVOeqsa0rlLTypiusnGNmZ5jZPMJdU4rPCO9ltvK4YyMAY5PY+pnLTyxRVONVcZ2V6iyc2oKa6tQcIxknvZy8Yy+D4MkdF9kW6aNkZygo7tMYwjbOyCcE967M0mnPKzFcFu83lsuwgP0AAAAAAAH//Z' alt='Woman looking front'>
+            }
+        </div>
+      
+        <!-- Información de perfil -->
+        <div class="mt-4 text-center">
+          <h1 class="text-2xl font-bold">{{ profileInfo?.users?.unombre }} {{ profileInfo?.users?.uapellido }}</h1>
+          <p class="text-sm text-gray-400">{{ profileInfo?.users?.urole }}</p>
+        </div>
+      
+        <!-- Bio del usuario -->
+        <div class="mt-4 text-center max-w-md">
+          <p class="text-gray-300">
+            Este es un usuario tipo Administrador
+          </p>
+        </div>
+      
+        <div class="mt-6 flex justify-around w-full max-w-md border-t border-gray-700 pt-4">
+        </div>
+      
+        <!-- Botones de acciones -->
+        <div class="mt-6 w-full flex justify-center space-x-4">
+          @if (profileInfo?.users?.urole === "ADMIN") {
+            <button class="px-6 py-2 bg-blue-600 rounded-full text-white" (click)="updatePerfil(profileInfo?.users?.uid)">
+                Actualizar
+            </button>
+        }
+        </div>
+      </div> 
+</body>

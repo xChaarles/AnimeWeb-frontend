@@ -10,14 +10,17 @@
 
         <div class="hidden sm:flex sm:items-center">
             <a [routerLink]="['/WebAnime/animes']"
+            routerLinkActive="text-purple-600 border-b-2 border-purple-600 transition-all"
             class="text-gray-400 text-sm font-semibold hover:text-purple-600 mr-4">Inicio</a>
 
             <a [routerLink]="['/WebAnime/generos']"
+            routerLinkActive="text-purple-600 border-b-2 border-purple-600 transition-all"
             class="text-gray-400 text-sm font-semibold hover:text-purple-600 mr-4">Generos</a>
 
             @if (isAuthenticated) {
             <a [routerLink]="['/WebAnime/perfil']"
-             class="text-gray-400 text-sm font-semibold hover:text-purple-600 mr-4">Perfil
+              routerLinkActive="text-purple-600 border-b-2 border-purple-600 transition-all "
+              class="text-gray-400 text-sm font-semibold hover:text-purple-600 mr-4">Perfil
             </a>
             }
         </div>
@@ -25,10 +28,12 @@
         <div class="hidden sm:flex sm:items-center">
             @if (!isAuthenticated) {
             <a [routerLink]="['/WebAnime/login']"
+              routerLinkActive="text-purple-600 border-b-2 border-purple-600 transition-all"
               class="text-gray-400 text-sm font-semibold hover:text-purple-600 mr-4">Login</a>
             }
             @if (!isAuthenticated) {
               <a (click)="singup()"
+              routerLinkActive="text-purple-600 border-b-2 border-purple-600 transition-all"
                 class="text-gray-400 text-sm font-semibold hover:text-purple-600 mr-4">Registro</a>
               }
             @if (isAuthenticated) {
@@ -47,30 +52,31 @@
         <div class="flex flex-col">
             <div class="flex justify-center items-center pb-2">
             <a [routerLink]="['/WebAnime/animes']"
+            routerLinkActive="text-purple-600 border-b-2 border-purple-600 transition-all"
             class="text-gray-400 text-sm font-semibold hover:text-purple-600 mr-4">Inicio</a>
 
             <a [routerLink]="['/WebAnime/generos']"
+            routerLinkActive="text-purple-600 border-b-2 border-purple-600 transition-all"
             class="text-gray-400 text-sm font-semibold hover:text-purple-600 mr-4">Generos</a>
 
             @if (isAuthenticated) {
             <a [routerLink]="['/WebAnime/perfil']"
-             class="text-gray-400 text-sm font-semibold hover:text-purple-600 mr-4">Perfil
+              routerLinkActive="text-purple-600 border-b-2 border-purple-600 transition-all"
+              class="text-gray-400 text-sm font-semibold hover:text-purple-600 mr-4">Perfil
             </a>
             }
             </div>
           <div class="flex justify-between items-center border-t-2 pt-2">
             @if (!isAuthenticated) {
                 <a [routerLink]="['/WebAnime/login']"
+                routerLinkActive="text-purple-600 border-b-2 border-purple-600 transition-all"
                 class="text-gray-400 text-sm font-semibold hover:text-purple-600 mr-4">Login</a>
             }
             @if (!isAuthenticated) {
                   <a (click)="singup()"
-                class="text-gray-400 text-sm font-semibold hover:text-purple-600 mr-4">Registro</a>
+                  routerLinkActive="text-purple-600 border-b-2 border-purple-600 transition-all"
+                  class="text-gray-400 text-sm font-semibold hover:text-purple-600 mr-4">Registro</a>
               }
-            @if (isAuthenticated) {
-                <a (click)="logout()"
-                class="text-gray-400 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 hover:border-purple-600">Cerrar Sesion</a>
-            }
           </div>
         </div>
       </div>

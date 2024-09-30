@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   standalone: true,
   imports: [],
-  templateUrl: './update-user.component.html',
+  templateUrl: './create-genero.component.html',
   styles: ``
 })
-export default class UpdateUserComponent {
+export default class CreateGeneroComponent {
 
 }

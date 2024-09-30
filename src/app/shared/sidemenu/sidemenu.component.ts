@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router, RouterModule } from '@angular/router';
 import { UserService } from '../../service/user.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector:'app-sidemenu',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './sidemenu.component.html',
   styles: ``
 })
@@ -27,7 +28,9 @@ export class SidemenuComponent implements OnInit {
     this.isAuthenticated = false;
     this.isAdmin = false;
     this.isUser = false;
-    this.router.navigate(['WebAnime/animes']); 
+    this.router.navigate(['WebAnime/animes']).then(() => {
+      window.location.reload(); // Recargar la página después de cerrar sesión
+    });
   }
 
   singup(){

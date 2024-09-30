@@ -40,6 +40,47 @@ export class UserService {
     return this.http.post<any>(`${this.api}/auth/register`, UserData)
   }
 
+  async getYourProfile(token:string):Promise<any>{
+    const url = `${this.api}/adminuser/get-profile`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+    try{
+      const response =  this.http.get<any>(url, {headers}).toPromise()
+      return response;
+    }catch(error){
+      throw error;
+    }
+  }
+
+  //Metodo para traer usuario por Id
+  async getUsersById(userId: string, token:string):Promise<any>{
+    const url = `${this.api}/admin/get-users/${userId}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+    try{
+      const response = this.http.get<any>(url, {headers}).toPromise()
+      return response;
+    }catch(error){
+      throw error;
+    }
+  }
+
+  //Metodo para actualizar un usuario
+  async updateUser(userId: string,userData:any, token:string):Promise<any>{
+    const url = `${this.api}/admin/update/${userId}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+    try{
+      const response = this.http.put<any>(url, userData, {headers}).toPromise()
+      return response;
+    }catch(error){
+      throw error;
+    }
+  }
+
   //METODOS DE AUTENTICACION
 
   //Este metodo nos permite que al realizar un cerrado de sesion las credianciales del usuario logeadio sean removidas
