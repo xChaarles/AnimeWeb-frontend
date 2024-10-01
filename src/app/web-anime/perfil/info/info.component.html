@@ -17,9 +17,15 @@
       
         <!-- Bio del usuario -->
         <div class="mt-4 text-center max-w-md">
+          @if(this.profileInfo?.users?.urole == "ADMIN"){
           <p class="text-gray-300">
             Este es un usuario tipo Administrador
           </p>
+          }@else {
+            <p class="text-gray-300">
+              Este es un usuario tipo User
+            </p>
+          }
         </div>
       
         <div class="mt-6 flex justify-around w-full max-w-md border-t border-gray-700 pt-4">

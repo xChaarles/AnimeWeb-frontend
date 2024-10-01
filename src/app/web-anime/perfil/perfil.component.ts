@@ -11,21 +11,34 @@ import { Router, RouterModule } from '@angular/router';
   styles: ``
 })
 export default class PerfilComponent implements OnInit {
+
+  
+  constructor(private readonly userService:UserService, 
+    private router: Router){}
+
   menuOpen: boolean = false; // Estado del menú
   isAuthenticated:boolean = false;
   isAdmin:boolean = false;
   isUser:boolean = false;
 
   profileInfo: any;
-
-  constructor(private userService:UserService, 
-              private router: Router){}
+  errorMessage:string ="";
+  
 
   async ngOnInit():Promise<void> {
     this.isAuthenticated = this.userService.isAuthenticated();
     this.isAdmin = this.userService.isAdmin();
     this.isUser = this.userService.isUser();
 
+    try {
+      const token = localStorage.getItem('token')
+      if(!token){
+        throw new Error("No Token Found")
+      }
+      this.profileInfo = await this.userService.getYourProfile(token);
+    } catch (error:any) {
+      this.showError(error.message)
+    }
   }
 
   // Método para alternar la visibilidad del menú
@@ -41,5 +54,12 @@ export default class PerfilComponent implements OnInit {
     this.router.navigate(['WebAnime/animes']).then(() => {
       window.location.reload(); // Recargar la página después de cerrar sesión
     });
+  }
+
+  showError(mess: string) {
+    this.errorMessage = mess;
+    setTimeout(() => {
+      this.errorMessage = ''
+    }, 3000)
   }
 }
