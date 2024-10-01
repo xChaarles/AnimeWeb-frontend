@@ -3,6 +3,7 @@ import { UserService } from '../../../../service/user.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { window } from 'rxjs';
 
 @Component({
   standalone: true,
@@ -43,6 +44,21 @@ export default class UpdateUserComponent implements OnInit {
   }
 
   async updateUser(){
+    const confirmUpdate = confirm("Deseas Actualizar este usuario");
+    if(!confirmUpdate) return
+    try{
+      const token = localStorage.getItem('token')
+      if(!token){
+        throw new Error('Token not found')
+      }
+      const res = await this.userService.updateUser(this.userId, this.userData, token);
+
+      if(res.statusCode == 200){
+        this.router.navigate(['WebAnime/perfil/tablas/userlist'])
+      }
+    }catch(error: any){
+      this.showError(error.message)
+    }
 
   }
 
