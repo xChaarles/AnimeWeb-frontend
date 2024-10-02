@@ -9,7 +9,12 @@ export const routes: Routes = [
             {
                 path: 'animes',
                 title: 'Animes',
-                loadComponent: () => import("./web-anime/animes/animes.component")
+                loadComponent: () => import("./web-anime/animes/animes.component"),
+            },
+            {
+                path: 'detailanime/:aid',
+                title: 'Info Anime',
+                loadComponent: () => import("./web-anime/detailsanime/detailsanime.component")
             },
             {
                 path: 'generos',
@@ -104,7 +109,7 @@ export const routes: Routes = [
             },
             {
                 path:'',
-                redirectTo:'WebAnime',
+                redirectTo:'WebAnime/animes',
                 pathMatch:'full'
             }
         ]    

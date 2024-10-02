@@ -4,5 +4,5 @@ export interface AnimeRes {
     adescripcion: string;   // Descripción del anime
     aportadaUrl: string;    // URL de la imagen del anime
     fechaEmision: Date;     // Fecha de emisión
-    gnombre: string;        // Nombre del género
+    genero: string;        // Nombre del género
 }

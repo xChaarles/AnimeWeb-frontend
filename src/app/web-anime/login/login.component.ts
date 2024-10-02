@@ -30,7 +30,7 @@ export default class LoginComponent {
       if(response.statusCode == 200){ //valida si el usuari y la contraseña existen en el servicio
         localStorage.setItem('token', response.token) //almacena el token en el localstorage de la pagina
         localStorage.setItem('role', response.role)   //almacena el tipo de rol si es usuario o admin
-        this.router.navigate(['/WebAnime/perfil']).then(() => {
+        this.router.navigate(['/WebAnime/perfil/info']).then(() => {
           window.location.reload();
         }); // y lo redirige al perfil de este usario
       }else{

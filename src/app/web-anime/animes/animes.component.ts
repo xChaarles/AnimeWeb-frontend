@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AnimeService } from '../../service/anime.service';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, FormsModule],
+  imports: [RouterModule, FormsModule, CommonModule],
   templateUrl: './animes.component.html',
   styles: ``
 })
@@ -25,6 +26,12 @@ export default class AnimesComponent implements OnInit {
     this.animeService.getAnimes().subscribe( data => {
       this.anime = data;
       });
+  }
+
+  detelleAnime(animeId : string){
+    this.router.navigate(['/WebAnime/detailanime', animeId]).then (() => {
+      window.location.reload()
+    });
   }
 
   showError(message: string) {

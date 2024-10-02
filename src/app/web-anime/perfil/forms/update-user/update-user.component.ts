@@ -52,7 +52,6 @@ export default class UpdateUserComponent implements OnInit {
         throw new Error('Token not found')
       }
       const res = await this.userService.updateUser(this.userId, this.userData, token);
-
       if(res.statusCode == 200){
         this.router.navigate(['WebAnime/perfil/tablas/userlist'])
       }

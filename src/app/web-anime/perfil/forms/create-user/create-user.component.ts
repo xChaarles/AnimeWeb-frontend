@@ -61,7 +61,7 @@ export default class CreateUserComponent implements OnInit {
         const response = await this.userService.register(this.formData, token);
         console.log(response)
         if (response.statusCode === 200) {
-          this.router.navigate(['WebAnime/perfil/forms/tablas/userlist']).then(() => {
+          this.router.navigate(['WebAnime/perfil/tablas/userlist']).then(() => {
             window.location.reload();
           });
         } else {

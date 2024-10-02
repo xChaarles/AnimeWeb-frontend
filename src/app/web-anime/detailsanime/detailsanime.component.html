@@ -1,0 +1,32 @@
+<div class="anime-detail-container bg-gray-800 rounded-lg shadow-lg max-w-4xl mx-auto mt-10 p-6 flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-6">
+
+  <!-- Imagen del anime -->
+  <div class="anime-image md:w-1/3 w-full">
+    <img [src]="anime.aportadaUrl" alt="{{ anime.anombre }}" class="rounded-lg shadow-md object-cover w-full h-full">
+  </div>
+
+  <!-- Detalles del anime -->
+  <div class="anime-details md:w-2/3 w-full">
+    <!-- Título del anime -->
+    <h2 class="text-3xl font-bold mb-4 text-gray-400">{{ anime.anombre }}</h2>
+
+
+    <!-- Sinopsis -->
+    <div class="sinopsis mb-4">
+      <h3 class="text-xl font-semibold mb-2 text-gray-400">Sinopsis</h3>
+      <p class="text-gray-500">{{ anime.adescripcion }}</p>
+    </div>
+
+    <!-- Géneros -->
+    <div class="generos mb-4">
+      <h3 class="text-xl font-semibold mb-2 text-gray-400">Géneros</h3>
+      <ul class="list-disc pl-5">
+        @if (anime.genero) {
+        <li class="text-gray-500">{{ anime.genero.gnombre }}</li>
+        }
+      </ul>
+    </div>
+
+    <!-- Información General -->
+  </div>
+</div>
