@@ -78,11 +78,26 @@ export class AnimeService {
     }
   }
 
-updateAnime(animeId: string, AnimeData: any, token: string): Observable<any> {
+ async updateAnime(animeId: string, AnimeData: any, token: string): Promise<any> {
     const url = `${this.urla}/admin/update-anime/${animeId}`;
     const headers = new HttpHeaders ({
       'Authorization': `Bearer ${token}`
     });
-    return this.ahttp.put<any>(url, AnimeData, {headers});
+    try{
+      const response = this.ahttp.put<any>(url, AnimeData, {headers}).toPromise()
+      return response;
+    }catch(error){
+      if (error instanceof HttpErrorResponse) {
+        if(error.status === 404) {
+          console.error('Error: Género no encontrado');
+          alert('Error: Género no encontrado. Por favor, verifica el nombre del género.');
+        } else {
+          console.error('Error al crear el anime:', error);
+        }
+      } else {
+          console.error('Error inesperado:', error);
+      }
+      throw error;
+    }
   }
 }

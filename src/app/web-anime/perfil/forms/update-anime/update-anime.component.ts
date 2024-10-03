@@ -14,9 +14,21 @@ import { UserService } from '../../../../service/user.service';
 export default class UpdateAnimeComponent implements OnInit {
 
   animeId: any;
-  AnimeData: any = {};
+  AnimeData: any = {
+    anombre: '',
+    adescripcion: '',
+    aportadaUrl: '',
+    fechaEmision: '',
+    genero:'',
+  };
 
   errorMessage: string = '';
+
+  userprofile: any;
+
+  isAuthenticated: boolean = false;
+  isAdmin: boolean = false;
+  isUser: boolean = false;
 
   constructor(private animeService: AnimeService, 
               private router: Router, 
@@ -25,11 +37,28 @@ export default class UpdateAnimeComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.getByIdAnime();
+
+    this.isAuthenticated = this.userService.isAuthenticated();
+    this.isAdmin = this.userService.isAdmin();
+    this.isUser = this.userService.isUser();
+
+    try {
+      const token = localStorage.getItem('token')
+      if(!token){
+        throw new Error("No Token Found")
+      }
+      this.userprofile = await this.userService.getYourProfile(token);
+    } catch (error:any) {
+      this.showError(error.message)
+    }
+    console.log(this.userprofile)
   }
 
   //Convertir mi fechaEmision para plasmarla
   convertDateToISOFormat(dateString: string): string {
-    return dateString.replace(/\//g, '-'); // Reemplaza las barras por guiones
+    const [day, month, year] = dateString.split('/'); // Suponiendo que el formato es DD/MM/YYYY
+    return `${day}-${month}-${year}`; // Reemplaza las barras por guiones
+    
   }
 
   //Obtenemos los datos de anime por el ID
@@ -45,8 +74,13 @@ export default class UpdateAnimeComponent implements OnInit {
     if(this.animeId){
       this.animeService.getAnimeByidAdmin(this.animeId, token).subscribe(
         data => {
-          data.fechaEmision = this.convertDateToISOFormat(data.fechaEmision);
-          this.AnimeData = data;
+          this.AnimeData = {
+            anombre: data.anombre,
+            adescripcion: data.adescripcion,
+            aportadaUrl: data.aportadaUrl,
+            fechaEmision: data.fechaEmision,
+            genero: data.genero ? data.genero.gnombre : '' // Asegúrate de que esto sea un string
+          };
         },
         (error) => {
           console.error('Error al obtener el anime:', error);
@@ -55,35 +89,44 @@ export default class UpdateAnimeComponent implements OnInit {
     }
   }
 
-  updateAnime() {
-    const confirmUpdate = confirm("¿Deseas actualizar este anime?");
-    if (!confirmUpdate) return;
-  
-    const token: any = localStorage.getItem('token');
-    if (!token) {
-      alert('Token not found');
-      return; // Salir si no hay token
+  async updateAnime() {
+    // Validar campos requeridos
+    if (!this.AnimeData.anombre || !this.AnimeData.adescripcion || 
+        !this.AnimeData.aportadaUrl || !this.AnimeData.fechaEmision || 
+        !this.AnimeData.genero) {
+      this.showError('Por favor llene todos los campos');
+      return;
     }
-    console.log(token)
-    console.log(this.animeId)
-    this.animeService.updateAnime(this.animeId, this.AnimeData, token).subscribe(
-      (res) => {
-        // Validar el statusCode
-        if (res.statusCode === 200) {
-          this.router.navigate(['WebAnime/perfil/tablas/anime-list']);
-        } else {
-          // Manejar otros códigos de estado
-          alert(res.message || 'Error al actualizar el anime'); // Muestra un mensaje específico
-        }
-      },
-      (error) => {
-        // Manejar errores de la petición HTTP
-        console.error('Error al actualizar el anime:', error);
-        alert('Ocurrió un error al intentar actualizar el anime.'); // Mostrar mensaje de error genérico
+  
+    // Confirmar acción del usuario
+    const confirmRegistration = confirm('¿Estás seguro de que deseas registrar a este anime?');
+    if (!confirmRegistration) {
+      return;
+    }
+  
+    try {
+      const token: string | null = localStorage.getItem('token');
+      if (!token) {
+        throw new Error('No se encontró ningún token');
       }
-    );
-  } 
-
+  
+      // Verificar rol del usuario
+      if (this.userprofile.users?.urole === 'ADMIN') {
+        const response = await this.animeService.updateAnime(this.animeId, this.AnimeData, token);
+        
+        // Navegar si la actualización fue exitosa
+        if (response.aid) {
+          this.router.navigate(['WebAnime/perfil/tablas/anime-list']);
+        }
+      } else {
+        console.log('El usuario no es ADMIN');
+        this.showError('No tienes permisos para realizar esta acción');
+      }
+    } catch (error: any) {
+      this.showError(error.message);
+    }
+  }
+  
   showError(mess: string) {
     this.errorMessage = mess;
     setTimeout(() => {
