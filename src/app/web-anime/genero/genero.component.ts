@@ -13,7 +13,14 @@ import { FormsModule } from '@angular/forms';
 export default class GeneroComponent implements OnInit {
 
   formGenero: any [] = [];
-  anime: any [] = [];
+  anime: any = {
+      anombre: '',
+      adescripcion: '',
+      aportadaUrl: '',
+      fechaEmision: '',
+      genero:'',
+    };
+
   animesFiltrados: any[] = [];
 
   constructor(private generoService: GeneroService,
