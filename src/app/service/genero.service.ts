@@ -53,4 +53,25 @@ export class GeneroService {
     }
   }
 
+  async updateGenero(generoId:string, generoData:any, token:string):Promise<any>{
+    const url = `${this.urlg}/admin/update-genero/${generoId}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    try{
+      const response = this.ghttp.put<any>(url,generoData, {headers}).toPromise()
+      return response;
+    }catch(error){
+      throw error;
+    }
+  }
+
+  getByIdGenero(generoId:string, token:string):Observable<any>{
+    const url = `${this.urlg}/public/generos/${generoId}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.ghttp.get<any>(url, {headers})
+  }
+
 }
