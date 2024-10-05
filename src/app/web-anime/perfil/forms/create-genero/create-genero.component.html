@@ -1,1 +1,26 @@
-<p>create-genero works!</p>
+<div class="bg-gray-900 flex flex-col justify-center sm:py-12">
+    <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+        <div
+            class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-sky-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
+        </div>
+        <div class="relative px-4 py-10 bg-gray-900 shadow-lg sm:rounded-3xl border border-sky-600 sm:p-20 text-gray-400">
+            <div class="flex justify-center">
+                <h1 class="text-2xl font-semibold">Crear Nuevo Genero</h1>
+            </div>
+            <form class="">
+                <div class="divide-y divide-gray-200">
+                    <div class="py-8 text-base leading-6 space-y-4 text-gray-400 sm:text-lg sm:leading-7">
+                        <div class="relative form-group">
+                            <label class="left-0 -top-3.5 text-gray-400 text-sm">Nombre del Genero :</label>
+                            <input [(ngModel)]="genero.gnombre" type="text" id="nombre" class="rounded-lg h-8 w-full border-b-2 border-gray-300 text-gray-900" name="nombre">
+                        </div>
+                        <div class="flex mx-[150px]">
+                        <button
+                        class="font-medium text-white dark:text-white rounded-md bg-blue-600 w-24 h-8" (click)="crearGenero()">Crear</button>
+                        </div>
+                        </div>
+                    </div>
+                </form>
+        </div>
+    </div>
+</div>
