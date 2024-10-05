@@ -3,10 +3,11 @@ import { GeneroService } from '../../service/genero.service';
 import { Router, RouterModule } from '@angular/router';
 import { AnimeService } from '../../service/anime.service';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, FormsModule],
+  imports: [RouterModule, FormsModule, CommonModule],
   templateUrl: './genero.component.html',
   styles: ``
 })
@@ -22,6 +23,7 @@ export default class GeneroComponent implements OnInit {
     };
 
   animesFiltrados: any[] = [];
+  selectedGenre: string | null = null;
 
   constructor(private generoService: GeneroService,
               private router: Router,
@@ -57,7 +59,8 @@ export default class GeneroComponent implements OnInit {
     });
   }
 
-  AnimeXgenero(){
-
+  seleccionarGenero(gnombre: string): void {
+    this.selectedGenre = gnombre;
+    this.filtrarAnimesPorGenero(gnombre); // También filtra por género seleccionado
   }
 }
