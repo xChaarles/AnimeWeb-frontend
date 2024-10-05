@@ -1,6 +1,7 @@
 <!-- component -->
 <div class="bg-gray-900">
     <main class="min-h-screen">
+      <h1 class="text-2xl text-gray-400 pl-4 pt-4">Recientes</h1>
       <div class="container mx-auto mb-10">
         <!--- Content --->
         <div class="w-full">
@@ -32,7 +33,7 @@
   
         <!--- Category Header --->
         <div class="flex justify-between">
-          <h1 class="text-2xl text-gray-400 pl-4">Recently Added</h1>
+          <h1 class="text-2xl text-gray-400 pl-4">Animes</h1>
           <div class="my-auto flex">
             <span class="p-2 bg-gray-900 m-2 rounded-md">
               <svg class="fill-sky-600" width="10" height="10" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -53,7 +54,7 @@
         </div>
         <!--- Content --->
         <div class="w-full">
-          <div class="flex overflow-x-auto overflow-hidden py-4 px-2">
+          <div class="grid grid-cols-1 md:grid-cols-3 py-4 px-2">
             <!--- Card --->
             @for (item of anime; track $index) {
             <div class="flex-shrink-0 h-80 m-3 rounded-3xl relative" style="box-shadow: 0px 10px 22px 0px rgba(0,0,0,0.45);-webkit-box-shadow: 0px 10px 22px 0px rgba(0,0,0,0.45);-moz-box-shadow: 0px 10px 22px 0px rgba(0,0,0,0.45);">

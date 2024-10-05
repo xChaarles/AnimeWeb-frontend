@@ -100,4 +100,8 @@ export class AnimeService {
       throw error;
     }
   }
+
+  getAnimesByGenero(generoNombre: string): Observable<any[]> {
+    return this.ahttp.get<any[]>(`${this.urla}/public/genero/${generoNombre}`);
+  }
 }
