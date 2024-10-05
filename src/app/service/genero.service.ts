@@ -28,4 +28,29 @@ export class GeneroService {
     }
   }
 
+  getListGenero(token:string):Observable<any>{
+    const url = `${this.urlg}/public/generos`
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    try{
+      return this.ghttp.get<any>(url, {headers})
+    }catch(erro){
+      throw erro;
+    }
+  }
+
+  async deleteGenero(generoId:string, token:string):Promise<any>{
+    const url = `${this.urlg}/admin/delete-genero/${generoId}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    try{
+      const response = await this.ghttp.delete<any>(url, {headers}).toPromise();
+      return response;
+    }catch(error){
+      throw error;
+    }
+  }
+
 }
