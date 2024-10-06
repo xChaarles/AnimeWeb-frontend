@@ -10,15 +10,15 @@ Este proyecto tiene como consumo Apis que vienen del baackend de este proyecto e
 
 ## Imagenes
 
-![Incio](Anime_inicio.png)
-![genero](Anime_genero.png)
-![Animes por Genero](Anime_xgenero.png)
-![Registro](registro.png)
-![login](login.png)
-![Entorno Admin](Entorno_admin.png)
-![crear usuario](create-user.png)
-![lista de usuarios CRUD](LIst-crud-user.png)
-![perfil de Usuario](perfil-user-normal.png)
+![Incio](public/Anime_inicio.png)
+![genero](public/Anime_genero.png)
+![Animes por Genero](public/Anime_xgenero.png)
+![Registro](public/registro.png)
+![login](public/login.png)
+![Entorno Admin](public/Entorno_admin.png)
+![crear usuario](public/create-user.png)
+![lista de usuarios CRUD](public/LIst-crud-user.png)
+![perfil de Usuario](public/perfil-user-normal.png)
 
 
 
