@@ -10,15 +10,17 @@ Este proyecto tiene como consumo Apis que vienen del baackend de este proyecto e
 
 # Imagenes
 
-<img src="Anime_inicio.png" alt="Texto alternativo" width="200" height="100">
-<img src="Anime_genero.png" alt="Texto alternativo" width="200" height="100">
-<img src="Anime_xgenero.png" alt="Texto alternativo" width="200" height="100">
-<img src="registro.png" alt="Texto alternativo" width="200" height="100">
-<img src="login.png" alt="Texto alternativo" width="200" height="100">
-<img src="Entorno_admin.png" alt="Texto alternativo" width="200" height="100">
-<img src="create-user.png" alt="Texto alternativo" width="200" height="100">
-<img src="LIst-crud-user.png" alt="Texto alternativo" width="200" height="100">
-<img src="perfil-user-normal.png" alt="Texto alternativo" width="200" height="100">
+![](Anime_inicio.png)
+![](Anime_genero.png)
+![](Anime_xgenero.png)
+![](registro.png)
+![](login.png)
+![](Entorno_admin.png)
+![](create-user.png)
+![](LIst-crud-user.png)
+![](perfil-user-normal.pn)
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
 
