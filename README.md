@@ -8,7 +8,7 @@ Este proyecto tiene como consumo Apis que vienen del baackend de este proyecto e
 - Back con Spring Boot
 - Front con Angular y Tailwind css
 
-# Imagenes
+## Imagenes
 
 ![Incio](Anime_inicio.png)
 ![genero](Anime_genero.png)
@@ -18,7 +18,7 @@ Este proyecto tiene como consumo Apis que vienen del baackend de este proyecto e
 ![Entorno Admin](Entorno_admin.png)
 ![crear usuario](create-user.png)
 ![lista de usuarios CRUD](LIst-crud-user.png)
-![perfil de Usuario](perfil-user-normal.pn)
+![perfil de Usuario](perfil-user-normal.png)
 
 
 
